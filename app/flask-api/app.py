@@ -41,8 +41,7 @@ def init_db():
 
 @app.route('/health', methods=['GET'])
 def health():
-    """Health check endpoint."""
-    return jsonify({'status': 'healthy', 'service': 'flask-api'}), 200
+    return jsonify({'status': 'healthy', 'service': 'flask-api', 'version': 'v2'}), 200
 
 @app.route('/api/items', methods=['GET'])
 def get_items():
@@ -92,5 +91,4 @@ def delete_item(item_id):
     return jsonify({'message': 'Item deleted'}), 200
 
 if __name__ == '__main__':
-    init_db()
     app.run(host='0.0.0.0', port=5000)
